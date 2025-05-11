@@ -27,7 +27,7 @@ function UserProfile() {
         );
 
         if (response.status === 401) {
-          if (isMounted) navigate("/login", { replace: true });
+          if (isMounted) navigate("/instaFrontend/login", { replace: true });
           return;
         }
 
@@ -125,7 +125,7 @@ function UserProfile() {
               <span className="stat-count">{profile.posts?.length || 0}</span>
               <span className="stat-label">Posts</span>
             </div>
-            <Link to={`/profile/${userId}/followers`}>
+            <Link to={`/instaFrontend/profile/${userId}/followers`}>
               <div>
                 <span className="stat-count">
                   {profile.followers?.length || 0}
@@ -133,7 +133,7 @@ function UserProfile() {
                 <span className="stat-label">Followers</span>
               </div>
             </Link>
-            <Link to={`/profile/${userId}/following`}>
+            <Link to={`/instaFrontend/profile/${userId}/following`}>
               <div>
                 <span className="stat-count">
                   {profile.following?.length || 0}
