@@ -29,7 +29,7 @@ function Dashboard() {
         });
 
         if (response.status === 401) {
-          navigate("/login");
+          navigate("instaFrontend/login");
           return;
         }
 
@@ -44,7 +44,7 @@ function Dashboard() {
         }
       } catch (error) {
         console.error("Failed to fetch user data:", error);
-        navigate("/login");
+        navigate("/instaFrontend/login");
       } finally {
         setIsLoading(false);
       }
@@ -61,7 +61,7 @@ function Dashboard() {
       });
       const data = await response.json();
       alert(data.message);
-      navigate("/login");
+      navigate("instaFrontend/login");
     } catch (error) {
       console.error("Logout failed:", error);
     }
