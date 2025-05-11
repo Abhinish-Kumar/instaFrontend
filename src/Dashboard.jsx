@@ -29,7 +29,7 @@ function Dashboard() {
         });
 
         if (response.status === 401) {
-          navigate("instaFrontend/login");
+          navigate("/instaFrontend/login");
           return;
         }
 
@@ -38,8 +38,8 @@ function Dashboard() {
           setUser(data.user);
           setBio(data.user.bio || "");
           const imageUrl = data.user.profilePhoto
-            ? `http://localhost:4000${data.user.profilePhoto}`
-            : "https://tse1.mm.bing.net/th/id/OIP.r3WUR1mjk0t2EqRtZeo-ewHaHj?w=500&h=510&rs=1&pid=ImgDetMain";
+            ? `https://instaserver-f4d3.onrender.com${data.user.profilePhoto}`
+            : "https://instaserver-f4d3.onrender.com/uploads/default-profile.jpg";
           setPreviewUrl(imageUrl);
         }
       } catch (error) {
@@ -61,7 +61,7 @@ function Dashboard() {
       });
       const data = await response.json();
       alert(data.message);
-      navigate("instaFrontend/login");
+      navigate("/instaFrontend/login");
     } catch (error) {
       console.error("Logout failed:", error);
     }
