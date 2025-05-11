@@ -97,7 +97,7 @@ function ListOfPosts({ user }) {
   };
 
   const navigateToProfile = (userId) => {
-    navigate(`/profile/${userId}`);
+    navigate(`/instaFrontend/profile/${userId}`);
   };
 
   const formatDate = (dateString) => {
