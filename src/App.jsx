@@ -23,14 +23,14 @@ function App() {
     <Router>
       {/* //all thing related to route should be in Reouter */}
       <nav>
-          <Link to='/register'>Register</Link> 
-          <Link to='/login'>Login</Link>
-          <Link to='/dashboard'>Dashboard</Link>
+          <Link to='/instaFrontend/register'>Register</Link> 
+          <Link to='/instaFrontend/login'>Login</Link>
+          <Link to='/instaFrontend/dashboard'>Dashboard</Link>
         </nav>
       <Routes>
-        <Route path='/register' element={<Register/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/dashboard' element={<Dashboard/>}/>
+        <Route path='/instaFrontend/register' element={<Register/>}/>
+        <Route path='/instaFrontend/login' element={<Login/>}/>
+        <Route path='/instaFrontend/dashboard' element={<Dashboard/>}/>
       </Routes>
     </Router>
      {/* <h1>kjcas</h1> */}
