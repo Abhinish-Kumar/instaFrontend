@@ -21,37 +21,41 @@ function Dashboard() {
   const [postError, setPostError] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch("https://instaserver-f4d3.onrender.com/api/dashboard", {
-          credentials: "include",
-        });
+ useEffect(() => {
+  const fetchUserData = async () => {
+    try {
+      const response = await fetch("https://instaserver-f4d3.onrender.com/api/dashboard", {
+        credentials: "include",
+      });
 
-        if (response.status === 401) {
-          navigate("/instaFrontend/login");
-          return;
-        }
-
-        const data = await response.json();
-        if (data.user) {
-          setUser(data.user);
-          setBio(data.user.bio || "");
-          const imageUrl = data.user.profilePhoto
-            ? `https://instaserver-f4d3.onrender.com${data.user.profilePhoto}`
-            : "https://instaserver-f4d3.onrender.com/uploads/default-profile.jpg";
-          setPreviewUrl(imageUrl);
-        }
-      } catch (error) {
-        console.error("Failed to fetch user data:", error);
+      console.log("Dashboard response status:", response.status);
+      
+      if (response.status === 401) {
         navigate("/instaFrontend/login");
-      } finally {
-        setIsLoading(false);
+        return;
       }
-    };
 
-    fetchUserData();
-  }, [navigate]);
+      const data = await response.json();
+      console.log("Dashboard data:", data); // Add this to debug
+      
+      if (data.user) {
+        setUser(data.user);
+        setBio(data.user.bio || "");
+        const imageUrl = data.user.profilePhoto
+          ? `https://instaserver-f4d3.onrender.com${data.user.profilePhoto}`
+          : "https://instaserver-f4d3.onrender.com/uploads/default-profile.jpg";
+        setPreviewUrl(imageUrl);
+      }
+    } catch (error) {
+      console.error("Failed to fetch user data:", error);
+      navigate("/instaFrontend/login");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  fetchUserData();
+}, [navigate]);
 
   const handleLogout = async () => {
     try {
