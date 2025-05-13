@@ -96,7 +96,7 @@ function UserProfile() {
         <img
           src={
             profile.profilePhoto
-              ? `https://instaserver-f4d3.onrender.com${profile.profilePhoto}`
+              ? `${profile.profilePhoto}`
               : "https://cdn3.iconfinder.com/data/icons/it-and-ui-mixed-filled-outlines/48/default_image-1024.png"
           }
           alt="Profile"
